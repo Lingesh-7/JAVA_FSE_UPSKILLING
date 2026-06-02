@@ -59,6 +59,7 @@ pids/
 
 # Generated Files
 *.map
+.env
 
 # Testing
 .nyc_output/
