@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        #welcomeBanner {
+            background: blue;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .highlight {
+            background: yellow;
+            padding: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+
+        <h1 id="mainHeader" style="color:red;">
+            Local Community Event Portal
+        </h1>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="help.html" target="_blank">Help</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+
+    <section id="home">
+
+        <div id="welcomeBanner">
+            Welcome Resident!
+
+            <span style="color:red;font-weight:bold">
+                Special Offer: Register Today!
+            </span>
+        </div>
+
+        <p class="highlight">
+            Explore exciting community activities and stay connected.
+        </p>
+
+    </section>
+
+    <section id="events">
+
+        <h2>Upcoming Events</h2>
+
+        <select id="eventCategory">
+            <option value="All">All Events</option>
+            <option value="Music">Music</option>
+            <option value="Workshop">Workshop</option>
+            <option value="Sports">Sports</option>
+        </select>
+
+        <p id="eventFee"></p>
+
+        <input type="text"
+               id="searchEvent"
+               placeholder="Search event by name">
+
+        <div id="eventContainer"></div>
+
+    </section>
+
+    <section>
+
+        <h2>Community Event Gallery</h2>
+
+        <table>
+
+            <tr>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400"
+                         alt="Music Festival"
+                         title="Music Festival"
+                         class="gallery-img"
+                         ondblclick="enlargeImage(this)">
+                    <p>Music Festival</p>
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400"
+                         alt="Workshop"
+                         title="Workshop"
+                         class="gallery-img"
+                         ondblclick="enlargeImage(this)">
+                    <p>Workshop</p>
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400"
+                         alt="Sports"
+                         title="Sports Day"
+                         class="gallery-img"
+                         ondblclick="enlargeImage(this)">
+                    <p>Sports Day</p>
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400"
+                         alt="Marathon"
+                         title="Marathon"
+                         class="gallery-img"
+                         ondblclick="enlargeImage(this)">
+                    <p>Marathon</p>
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400"
+                         alt="Community Event"
+                         title="Community Meetup"
+                         class="gallery-img"
+                         ondblclick="enlargeImage(this)">
+                    <p>Community Meetup</p>
+                </td>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=400"
+                         alt="Food Festival"
+                         title="Food Festival"
+                         class="gallery-img"
+                         ondblclick="enlargeImage(this)">
+                    <p>Food Festival</p>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </section>
+
+    <section id="registration">
+
+        <h2>Event Registration</h2>
+
+        <form id="registrationForm">
+
+            <input type="text"
+                   name="name"
+                   placeholder="Enter Name"
+                   required
+                   autofocus>
+
+            <input type="email"
+                   name="email"
+                   placeholder="Enter Email"
+                   required>
+
+            <input type="date"
+                   name="date"
+                   required>
+
+            <input type="text"
+                   id="phone"
+                   placeholder="Enter Phone Number"
+                   onblur="validatePhone()">
+
+            <select id="eventType" required>
+                <option value="">Select Event</option>
+                <option value="Music">Music</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Sports">Sports</option>
+            </select>
+
+            <textarea id="feedback"
+                      placeholder="Feedback"></textarea>
+
+            <p>Characters Typed: <span id="charCount">0</span></p>
+
+            <button type="submit" id="registerBtn">
+                Register
+            </button>
+
+            <output id="outputMessage"></output>
+
+        </form>
+
+        <button onclick="clearPreferences()">
+            Clear Preferences
+        </button>
+
+    </section>
+
+    <section>
+
+        <h2>Nearby Events</h2>
+
+        <button onclick="findLocation()">
+            Find Nearby Events
+        </button>
+
+        <p id="locationResult"></p>
+
+    </section>
+
+    <section>
+
+        <h2>Event Promo Video</h2>
+
+        <video width="500"
+               controls
+               oncanplay="videoReady()">
+
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4">
+
+        </video>
+
+        <p id="videoStatus"></p>
+
+    </section>
+
+    <section>
+
+        <h2>Community Bulletin</h2>
+
+        <div class="news-columns">
+
+            Community events help residents engage with one another.
+            Workshops, cultural programs, sports competitions, awareness
+            drives, volunteer activities and social gatherings strengthen
+            local communities.
+
+            Active participation improves civic engagement and builds a
+            stronger neighborhood for future generations.
+
+        </div>
+
+    </section>
+
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>Email: council@community.org</p>
+
+        <p>Phone: +91 9876543210</p>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>© 2026 Local Community Event Portal</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
