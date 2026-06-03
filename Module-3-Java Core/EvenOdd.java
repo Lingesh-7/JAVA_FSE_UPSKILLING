@@ -1,12 +1,13 @@
 import java.util.Scanner;
 
-public class EvenOddChecker {
+public class EvenOdd {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
 
-        if(n % 2 == 0)
+        if(num % 2 == 0)
             System.out.println("Even");
         else
             System.out.println("Odd");

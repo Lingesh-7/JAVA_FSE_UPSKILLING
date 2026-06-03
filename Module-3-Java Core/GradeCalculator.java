@@ -5,17 +5,18 @@ public class GradeCalculator {
 
         Scanner sc = new Scanner(System.in);
 
-        int mark = sc.nextInt();
+        System.out.print("Enter marks: ");
+        int marks = sc.nextInt();
 
-        if(mark >= 90)
-            System.out.println("A");
-        else if(mark >= 80)
-            System.out.println("B");
-        else if(mark >= 70)
-            System.out.println("C");
-        else if(mark >= 60)
-            System.out.println("D");
+        if(marks >= 90)
+            System.out.println("Grade A");
+        else if(marks >= 80)
+            System.out.println("Grade B");
+        else if(marks >= 70)
+            System.out.println("Grade C");
+        else if(marks >= 60)
+            System.out.println("Grade D");
         else
-            System.out.println("F");
+            System.out.println("Grade F");
     }
 }

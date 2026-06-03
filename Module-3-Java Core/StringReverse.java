@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PalindromeChecker {
+public class StringReverse {
 
     public static void main(String[] args) {
 
@@ -9,15 +9,9 @@ public class PalindromeChecker {
         System.out.print("Enter string: ");
         String str = sc.nextLine();
 
-        str = str.replaceAll("[^a-zA-Z0-9]", "")
-                .toLowerCase();
-
         String reversed =
                 new StringBuilder(str).reverse().toString();
 
-        if(str.equals(reversed))
-            System.out.println("Palindrome");
-        else
-            System.out.println("Not Palindrome");
+        System.out.println("Reversed String: " + reversed);
     }
 }

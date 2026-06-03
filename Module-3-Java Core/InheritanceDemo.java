@@ -1,16 +1,20 @@
-class Animal{
-    void makeSound(){
+class Animal {
+
+    void makeSound() {
         System.out.println("Animal Sound");
     }
 }
 
-class Dog extends Animal{
-    void makeSound(){
+class Dog extends Animal {
+
+    @Override
+    void makeSound() {
         System.out.println("Bark");
     }
 }
 
-public class InheritanceExample {
+public class InheritanceDemo {
+
     public static void main(String[] args) {
 
         Animal a = new Animal();
